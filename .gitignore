@@ -5,3 +5,10 @@
 # Environment variables
 .env
 .envrc
+
+# Python files
+__pycache__/
+*.egg-info/
+.coverage
+.venv
+.pytest_cache
