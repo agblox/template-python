@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-.PHONY: help repo-init hook-checks
+.PHONY: help repo-init bootstrap check tests secrets-baseline-create secrets-baseline-audit
 
 .DEFAULT_GOAL = help
 
@@ -10,5 +10,17 @@ help:  ## Display this help
 repo-init:  ## Install pre-commit in repo
 	pre-commit install
 
+bootstrap:  ## Install/update required tools(dev tools included)
+	poetry install --extras "dev"
+
 check:  ## Run pre-commit against all files
 	pre-commit run --all-files
+
+tests:  ## Run tests
+	poetry run pytest
+
+secrets-baseline-create:  ## Create .secrets.baseline file
+	poetry run detect-secrets scan --exclude-files poetry.lock > .secrets.baseline
+
+secrets-baseline-audit:  ## Check updated .secrets.baseline file
+	poetry run detect-secrets audit .secrets.baseline
