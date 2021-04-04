@@ -13,8 +13,9 @@ Base Python repo template.
 ### Prerequisites
 Tools to install: [git][4], [pre-commit][5], [poetry][6]
 ### Install
-Official [docs][1]
+1. [Create][1] a new repo from this template.
 ### Usage
+1. Clone your repo.
 1. Find all `replace-me` or `replace_me` strings in repo files or files/dirs names and replace it with actual data.
 1. Add your repo to tara.ai workspace. Instruction [here][2].
 1. Initialize environment: `make repo-init bootstrap`.
