@@ -12,6 +12,8 @@
 Base Python repo template.
 ### Prerequisites
 Tools to install: [git][g], [pre-commit][pk], [poetry][p]
+
+You can use [this][a] playbook for automated tools installation(Ubuntu only).
 ### Install
 1. [Create][1] a new repo from this template.
 ### Usage
@@ -29,6 +31,7 @@ Run `make tests`
 [g]: https://www.atlassian.com/git/tutorials/install-git
 [pk]: https://pre-commit.com/#install
 [p]: https://python-poetry.org/docs/#installation
+[a]: https://github.com/IaroslavR/ansible-role-server-bootstrap
 
 [1]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
 [2]: https://docs.google.com/document/d/128c8Up40PFeZg2LaUkChC3hNv1139-VruFm_SC-ZJiU/edit#heading=h.jutu1mazqqgt
