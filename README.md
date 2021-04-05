@@ -11,7 +11,7 @@
 ### About
 Base Python repo template.
 ### Prerequisites
-Tools to install: [git][4], [pre-commit][5], [poetry][6]
+Tools to install: [git][g], [pre-commit][pk], [poetry][p]
 ### Install
 1. [Create][1] a new repo from this template.
 ### Usage
@@ -26,12 +26,12 @@ Tools to install: [git][4], [pre-commit][5], [poetry][6]
 Run `make tests`
 ### Contribute
 
-[4]: https://www.atlassian.com/git/tutorials/install-git
-[5]: https://pre-commit.com/#install
-[6]: https://python-poetry.org/docs/#installation
-[7]: https://python-poetry.org/docs/basic-usage
-[8]: https://github.com/agblox/DiviAI-Information/wiki/Secrets#pre-commit-hook
+[g]: https://www.atlassian.com/git/tutorials/install-git
+[pk]: https://pre-commit.com/#install
+[p]: https://python-poetry.org/docs/#installation
 
 [1]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
 [2]: https://docs.google.com/document/d/128c8Up40PFeZg2LaUkChC3hNv1139-VruFm_SC-ZJiU/edit#heading=h.jutu1mazqqgt
 [3]: https://github.com/agblox/DiviAI-Information/wiki/Repos
+[7]: https://python-poetry.org/docs/basic-usage
+[8]: https://github.com/agblox/DiviAI-Information/wiki/Secrets#pre-commit-hook
