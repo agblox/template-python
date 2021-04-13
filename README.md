@@ -25,7 +25,8 @@ You can use [this][a] playbook for automated tools installation(Ubuntu only).
 ### Build
 ### Deploy
 ### Test
-Run `make tests`
+- Test suit: `make tests`
+- Type hints: `make test-mypy`
 ### Contribute
 
 [g]: https://www.atlassian.com/git/tutorials/install-git

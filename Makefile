@@ -19,6 +19,9 @@ check:  ## Run pre-commit against all files
 tests:  ## Run tests
 	poetry run pytest
 
+test-mypy:  ## Run type check
+	poetry run mypy
+
 secrets-baseline-create:  ## Create .secrets.baseline file
 	poetry run detect-secrets scan --exclude-files poetry.lock > .secrets.baseline
 
