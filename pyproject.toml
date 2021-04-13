@@ -16,11 +16,12 @@ pytest = { version = "^6.1.1", optional = true }
 pytest-cov =  { version = "^2.10.1", optional = true }
 pytest-dotenv = { version = "^0.5.2", optional = true }
 detect-secrets = { version = "^1.0.3", optional = true }
+mypy = { version = "^0.812", optional = true }
 
 # package deps
 
 [tool.poetry.extras]
-dev = ["pytest", "pytest-cov", "pytest-dotenv"]
+dev = ["pytest", "pytest-cov", "pytest-dotenv", "mypy"]
 
 [tool.poetry.urls]
 issues = "https://github.com/agblox/replace-me"
