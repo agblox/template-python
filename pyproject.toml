@@ -20,6 +20,7 @@ mypy = { version = "^0.812", optional = true }
 
 # package deps
 
+
 [tool.poetry.extras]
 dev = ["pytest", "pytest-cov", "pytest-dotenv", "mypy"]
 

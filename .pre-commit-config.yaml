@@ -14,7 +14,7 @@ repos:
       - id: black
         args: ["-l", "100", "--target-version=py38"]
   - repo: https://gitlab.com/pycqa/flake8
-    rev: "3.9.0"
+    rev: "3.9.1"
     hooks:
       - id: flake8  # C90,E,F,W
         additional_dependencies:
@@ -30,7 +30,7 @@ repos:
           - flake8-pytest-style==1.4.0  # PT
           - pep8-naming==0.11.1  # N8
   - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.0.3
+    rev: v1.1.0
     hooks:
       - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
