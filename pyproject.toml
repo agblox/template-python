@@ -3,7 +3,7 @@ authors = ["replace-me"]
 description = "replace-me"
 name = "replace-me"
 readme = "README.md"
-version = "v0.0.1"
+version = "1.0.0"
 repository = "https://github.com/agblox/replace-me"
 documentation = "https://github.com/agblox/replace-me"
 homepage = "https://github.com/agblox/replace-me"
@@ -20,6 +20,7 @@ mypy = { version = "^0.812", optional = true }
 
 # package deps
 
+
 [tool.poetry.extras]
 dev = ["pytest", "pytest-cov", "pytest-dotenv", "mypy"]
 
@@ -29,6 +30,14 @@ issues = "https://github.com/agblox/replace-me"
 [tool.black]
 line-length = 100
 target-version = ['py38']
+
+[tool.semantic_release]
+version_variable = [
+    "pyproject.toml:version"
+]
+upload_to_pypi = false
+upload_to_release = false
+commit_subject = "chore(release): {version}"
 
 [build-system]
 build-backend = "poetry.masonry.api"

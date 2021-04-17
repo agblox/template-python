@@ -57,7 +57,7 @@ toml = ["toml"]
 
 [[package]]
 name = "detect-secrets"
-version = "1.0.3"
+version = "1.1.0"
 description = "Tool for detecting secrets in the codebase"
 category = "main"
 optional = true
@@ -68,6 +68,7 @@ pyyaml = "*"
 requests = "*"
 
 [package.extras]
+gibberish = ["gibberish-detector"]
 word_list = ["pyahocorasick"]
 
 [[package]]
@@ -354,8 +355,8 @@ coverage = [
     {file = "coverage-5.5.tar.gz", hash = "sha256:ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"},
 ]
 detect-secrets = [
-    {file = "detect_secrets-1.0.3-py2.py3-none-any.whl", hash = "sha256:715d2351d1f0f18cf4e7861e74b4135af909652c07a79501abac86400c9d2164"},
-    {file = "detect_secrets-1.0.3.tar.gz", hash = "sha256:e2ea3f6b687a4d6ed4321f93ea7314ceceb383c643c85864ee38c0591ec42112"},
+    {file = "detect_secrets-1.1.0-py2.py3-none-any.whl", hash = "sha256:be8cca3dc65f6fd637f5dec9f583f1cf4a680dc1a580b3d2e65a5ac7a277456a"},
+    {file = "detect_secrets-1.1.0.tar.gz", hash = "sha256:68250b31bc108f665f05f0ecfb34f92423280e48e65adbb887fdf721ed909627"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
