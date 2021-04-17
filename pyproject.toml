@@ -35,9 +35,9 @@ target-version = ['py38']
 version_variable = [
     "pyproject.toml:version"
 ]
-branch = "master"
 upload_to_pypi = false
 upload_to_release = false
+commit_subject = "chore(release): {version}"
 
 [build-system]
 build-backend = "poetry.masonry.api"
