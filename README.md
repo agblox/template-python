@@ -15,7 +15,10 @@ Tools to install: [git][g], [pre-commit][pk], [poetry][p]
 
 You can use [this][a] playbook for automated tools installation(Ubuntu only).
 ### Install
-1. [Create][1] a new repo from this template.
+![create](docs/template_btn.png)
+
+[Create][1] a new repo from this template.
+
 ### Usage
 1. Clone your repo.
 1. Find all `replace-me` or `replace_me` strings in repo files or files/dirs names and replace it with actual data.
