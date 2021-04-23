@@ -29,6 +29,25 @@ repos:
           - flake8-polyfill==1.0.2
           - flake8-pytest-style==1.4.0  # PT
           - pep8-naming==0.11.1  # N8
+  - repo: local
+    hooks:
+    -   id: poetry_lock
+        name: Check if poetry is updated
+        entry: |
+          python -c "
+          from poetry.factory import Factory
+          l = Factory().create_poetry('.').locker
+          if l.is_locked() and l.is_fresh():
+            exit(0)
+          else:
+            print('run `portry update` to fix')
+            exit(1)
+          "
+        language: python_venv
+        additional_dependencies:
+          - poetry
+        verbose: True
+        files: pyproject.toml
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.1.0
     hooks:
