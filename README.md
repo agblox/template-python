@@ -26,16 +26,22 @@ You can use [this][a] playbook for automated tools installation(Ubuntu only).
 1. Initialize environment: `make repo-init bootstrap`.
 1. Clean `About`, `Install` and `Usage` sections of this file :) and follow our [requirements][3] to complete setup. If you are not familiar with `poerty` - read this [manual][7]. If you have a questions about secrets check hook - read [this][8] section from our `Secrets` Wiki document.
 ### Build
+- Release automated with the help of [release](.github/workflows/release.yml) GitHub workflow.
 ### Deploy
 ### Test
+#### Local
 - Test suit: `make tests`
 - Type hints: `make test-mypy`
+#### CD/CI
+- Automated tests GitHub [workflow](.github/workflows/tests.yml) triggered by PR.
 ### Contribute
+Commit message style - [Conventional Commits][cc].
 
 [g]: https://www.atlassian.com/git/tutorials/install-git
 [pk]: https://pre-commit.com/#install
 [p]: https://python-poetry.org/docs/#installation
 [a]: https://github.com/IaroslavR/ansible-role-server-bootstrap
+[cc]: https://www.conventionalcommits.org/en/v1.0.0/
 
 [1]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
 [2]: https://docs.google.com/document/d/128c8Up40PFeZg2LaUkChC3hNv1139-VruFm_SC-ZJiU/edit#heading=h.jutu1mazqqgt

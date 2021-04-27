@@ -1,6 +1,7 @@
 SHELL = /bin/bash
 
-.PHONY: help repo-init bootstrap check tests secrets-baseline-create secrets-baseline-audit
+.PHONY: help repo-init bootstrap check tests secrets-baseline-create secrets-baseline-audit \
+  refresh-lock
 
 .DEFAULT_GOAL = help
 
@@ -27,3 +28,6 @@ secrets-baseline-create:  ## Create .secrets.baseline file
 
 secrets-baseline-audit:  ## Check updated .secrets.baseline file
 	poetry run detect-secrets audit .secrets.baseline
+
+refresh-lock:  ## Refresh the lock file without updates
+	poetry lock --no-update
