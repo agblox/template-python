@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2021-04-27)
+### Feature
+* Add poetry.lock refresh target ([`0ce09b0`](https://github.com/agblox/template-python/commit/0ce09b09cad662cd0920e878632e1faac1c52e8b))
+* **ci:** Poetry.lock health check ([`eff6250`](https://github.com/agblox/template-python/commit/eff6250873fd796c95da2f724d24e07fd707bce5))
+
+### Documentation
+* Automations described ([`51e3d8e`](https://github.com/agblox/template-python/commit/51e3d8eb1ac9ff4aeafb8225e1e392a4a7a9839e))
+
 ## v1.1.1 (2021-04-22)
 ### Fix
 * Updated detect-secrets package version ([`6c0c4a9`](https://github.com/agblox/template-python/commit/6c0c4a9e29735603fd2d101b626a6b0691bfba99))
