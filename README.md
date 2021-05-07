@@ -23,10 +23,12 @@ You can use [this][a] playbook for automated tools installation(Ubuntu only).
 1. Clone your repo.
 1. Find all `replace-me` or `replace_me` strings in repo files or files/dirs names and replace it with actual data.
 1. Add your repo to tara.ai workspace. Instruction [here][2].
+1. Add `automation` team to the repo admins
+   ![release](docs/auth_setup.png)
 1. Initialize environment: `make repo-init bootstrap`.
 1. Clean `About`, `Install` and `Usage` sections of this file :) and follow our [requirements][3] to complete setup. If you are not familiar with `poerty` - read this [manual][7]. If you have a questions about secrets check hook - read [this][8] section from our `Secrets` Wiki document.
 ### Build
-- Release automated with the help of [release](.github/workflows/release.yml) GitHub workflow.
+Release GitHub [workflow](.github/workflows/release.yml). Release commit types: `fix`, `feat`.
 ### Deploy
 ### Test
 #### Local
