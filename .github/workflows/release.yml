@@ -15,3 +15,14 @@ jobs:
       uses: relekang/python-semantic-release@master
       with:
         github_token: ${{ secrets.ORG_MACHINE_USER_TOKEN }}
+  slack-workflow-status:
+    if: ${{ failure() }}
+    name: Post Workflow Status To Slack
+    needs:
+      - release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: Gamesight/slack-workflow-status@master
+      with:
+        repo_token: ${{secrets.GITHUB_TOKEN}}
+        slack_webhook_url: ${{secrets.GIT_SLACK_WEBHOOK}}

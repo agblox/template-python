@@ -23,11 +23,12 @@ tests:  ## Run tests
 test-mypy:  ## Run type check
 	poetry run mypy
 
-secrets-baseline-create:  ## Create .secrets.baseline file
-	poetry run detect-secrets scan --exclude-files poetry.lock > .secrets.baseline
+secrets-baseline-create:  ## Update .secrets.baseline file
+	detect-secrets scan --baseline .secrets.baseline
 
-secrets-baseline-audit:  ## Check updated .secrets.baseline file
-	poetry run detect-secrets audit .secrets.baseline
+secrets-baseline-audit:  ## Check and commit updated .secrets.baseline file
+	detect-secrets audit .secrets.baseline
+	git commit .secrets.baseline --no-verify -m "build(security): update secrets.baseline"
 
 refresh-lock:  ## Refresh the lock file without updates
 	poetry lock --no-update
