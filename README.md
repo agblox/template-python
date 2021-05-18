@@ -75,4 +75,4 @@ Commit message style - [Conventional Commits][cc].
 [8]: https://github.com/agblox/DiviAI-Information/wiki/Secrets#pre-commit-hook
 
 [checks]: https://github.com/agblox/template-api-server/actions/workflows/checks.yml/badge.svg
-[publish]: https://github.com/agblox/template-api-server/actions/workflows/publish.yml/badge.svg
+[release]: https://github.com/agblox/template-api-server/actions/workflows/release.yml/badge.svg
