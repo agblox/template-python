@@ -37,7 +37,7 @@ version_variable = [
 ]
 upload_to_pypi = false
 upload_to_release = false
-commit_subject = "chore(release): {version}"
+commit_subject = "chore(release): {version} [skip actions]"
 
 [build-system]
 build-backend = "poetry.masonry.api"
