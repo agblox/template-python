@@ -4,6 +4,53 @@ on:
       - master
 
 jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    name: Check all files with pre-commit and update globally available pre-commit cache
+    env:
+      SKIP: no-commit-to-branch
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - uses: actions/checkout@v2
+      - uses: pre-commit/action@v2.0.3
+
+  pytest:
+    runs-on: ubuntu-latest
+    name: Run test-suit and update globally available poetry cache
+    strategy:
+      # By default, GitHub will maximize the number of jobs run in parallel
+      # depending on the available runners on GitHub-hosted virtual machines.
+      # max-parallel: 8
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.8"
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: actions/checkout@v2
+      - name: Install poetry
+        run: pip install poetry
+      - name: Configure poetry
+        shell: bash
+        run: poetry config virtualenvs.in-project true
+      - name: Set up poetry cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            .venv
+          key: poetry-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: make bootstrap
+      - name: Run unit tests
+        run: make tests
+
   release:
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +62,7 @@ jobs:
       uses: relekang/python-semantic-release@master
       with:
         github_token: ${{ secrets.ORG_MACHINE_USER_TOKEN }}
+
   slack-workflow-status:
     if: ${{ failure() }}
     name: Post Workflow Status To Slack
@@ -25,4 +73,4 @@ jobs:
     - uses: Gamesight/slack-workflow-status@master
       with:
         repo_token: ${{secrets.GITHUB_TOKEN}}
-        slack_webhook_url: ${{secrets.GIT_SLACK_WEBHOOK}}
+        slack_webhook_url: ${{secrets.TEMPLATE_APPLICATION_SLACK_WEBHOOK}}
