@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.0 (2021-05-18)
+### Feature
+* **ci:** Add auto-approve workflow ([`e9ddcbb`](https://github.com/agblox/template-python/commit/e9ddcbbdb0f9ccfc0053e6b07c2639320e6ef54b))
+
+### Fix
+* **ci:** Tests targets ([`65083b7`](https://github.com/agblox/template-python/commit/65083b71774220edd8c59ba23d53c7af4b9ad67f))
+
+### Documentation
+* Update setup info ([`a9eed0b`](https://github.com/agblox/template-python/commit/a9eed0bb6507845d0fcbc95814920ea114d022aa))
+
 ## v1.2.0 (2021-04-27)
 ### Feature
 * Add poetry.lock refresh target ([`0ce09b0`](https://github.com/agblox/template-python/commit/0ce09b09cad662cd0920e878632e1faac1c52e8b))
