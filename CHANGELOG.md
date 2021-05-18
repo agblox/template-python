@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.1 (2021-05-18)
+### Fix
+* **ci:** Avoid unnecessary workflows runs ([`8cddcac`](https://github.com/agblox/template-python/commit/8cddcacb9d12dcb7e4ea3848d5c5ef24882813a6))
+
+### Documentation
+* Fix link to badge ([`be86eaa`](https://github.com/agblox/template-python/commit/be86eaa5c271a18016071ce989cc9b7c9954d012))
+
 ## v1.3.0 (2021-05-18)
 ### Feature
 * **ci:** Add auto-approve workflow ([`e9ddcbb`](https://github.com/agblox/template-python/commit/e9ddcbbdb0f9ccfc0053e6b07c2639320e6ef54b))
