@@ -36,8 +36,6 @@ jobs:
         run: make bootstrap
       - name: Run unit tests
         run: make tests
-      - name: Run docker image tests
-        run: make tests-integration
 
   pre-commit:
     runs-on: ubuntu-latest
