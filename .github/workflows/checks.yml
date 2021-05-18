@@ -1,7 +1,4 @@
 on:
-  push:
-    branches:
-      - master  # globally available cache https://stackoverflow.com/a/66632107/4249707
   pull_request:
 
 jobs:
@@ -33,10 +30,41 @@ jobs:
         with:
           path: |
             .venv
-            /home/runner/nltk_data
           key: poetry-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: make bootstrap
-      - name: Run pytest
+      - name: Run unit tests
         run: make tests
+      - name: Run docker image tests
+        run: make tests-integration
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    name: Check all files with pre-commit
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - uses: actions/checkout@v2
+      - uses: pre-commit/action@v2.0.3
+
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v3
+
+  approve:
+    if: ${{ success() }}
+    needs:
+      - pytest
+      - pre-commit
+      - commitlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: "${{ secrets.ORG_MACHINE_USER_TOKEN }}"
