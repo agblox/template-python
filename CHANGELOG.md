@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.2 (2021-09-22)
+### Fix
+* **ci:** Minor updates ([`57bed55`](https://github.com/agblox/template-python/commit/57bed558cefa4447e930054ccdff4bc59b042e03))
+
 ## v1.3.1 (2021-05-18)
 ### Fix
 * **ci:** Avoid unnecessary workflows runs ([`8cddcac`](https://github.com/agblox/template-python/commit/8cddcacb9d12dcb7e4ea3848d5c5ef24882813a6))
