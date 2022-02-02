@@ -56,8 +56,9 @@ Run `make` for list all available targets.
 
 1. Edit [CODEOWNERS](.github/CODEOWNERS) file.
 2. Find all `replace-me`, `template_python` and `template-python` strings in repo files or files/dirs names and replace it with actual data.
-3. Delete `Template usage` sections of this file.
-4. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
+3. Open `pyproject.toml` and replace version of your package to the `0.0.1`(line 6).
+4. Delete `Template usage` sections of this file.
+5. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
 
 ### PR configuration
 
