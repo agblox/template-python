@@ -4,75 +4,101 @@
 ## Table of contents
 * [About](#about)
 * [Prerequisites](#prerequisites)
-* [Install](#install)
 * [Usage](#usage)
+  * [Setup local environment](#setup-local-environment)
+* [Template usage](#template-usage)
+  * [Initial configuration](#initial-configuration)
+  * [Files modification](#files-modification)
+  * [PR configuration](#pr-configuration)
+  * [Additional information](#additional-information)
 * [Build](#build)
 * [Deploy](#deploy)
 * [Test](#test)
 * [Contribute](#contribute)
 
 ### About
-Base Python repo template.
+Base Python package/application template.
 
 ### Prerequisites
 Tools to install: [git][g], [pre-commit][pk], [poetry][p]
 
 You can use [this][a] playbook for automated tools installation(Ubuntu only).
 
-### Install
-![create](docs/template_btn.png)
-
-[Create][1] a new repo from this template.
-
 ### Usage
-### Repo setup
-1. Clone your repo.
-1. Add machine user to the [CODEOWNERS](.github/CODEOWNERS)
-1. Add your repo to tara.ai workspace. Instruction [here][2].
-1. Add `automation` team to the repo admins
+
+Run `make` for list all available targets.
+
+#### Setup local environment
+
+- `git clone git@github.com:agblox/template-python.git`
+- `cd template-python`
+- `make repo-init bootstrap`
+
+## Template usage
+
+**If you have any questions or problems with this instruction, please contact `@iaro` in our Slack.**
+
+### Initial configuration
+
+1. Create a new repo from this template.
+![create](docs/template_btn.png)
+2. Add `automation` team to the repo admins
    ![release](docs/auth_setup.png)
-1. Set branch protection rules for `master` branch
+3. Set branch protection rules for `master` branch
 
    ![add_rule](docs/branches.png)
 
    ![set_master](docs/master.png)
-1. Enable auto-merge and branch deletion after merge
+4. Enable auto-merge and branch deletion after merge
    ![set_options](docs/options.png)
-1. Find all `replace-me`, `replace_me` or `template-python` strings in repo files or files/dirs names and replace it with actual data.
-1. Clean `About`, `Install` and `Usage` sections of this file :) and follow our [requirements][3] to complete setup. If you are not familiar with `poerty` - read this [manual][7]. If you have a questions about secrets check hook - read [this][8] section from our `Secrets` Wiki document.
-1. Initialize environment: `make repo-init bootstrap`.
 
-### PR setup
-Press `Enable auto-merge`
-   ![enable_auto_merge](docs/auto_merge_btn.png)
+### Files modification
 
-### Build
-`release` GitHub [workflow](.github/workflows/release.yml). Release commit types: `fix`, `feat`.
+1. Edit [CODEOWNERS](.github/CODEOWNERS) file.
+2. Find all `replace-me`, `template_python` and `template-python` strings in repo files or files/dirs names and replace it with actual data.
+3. Delete `Template usage` sections of this file.
+4. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
 
-### Deploy
+### PR configuration
 
-### Test
-#### Local
-- Test suit: `make tests`
-- Type hints: `make test-mypy`
+Create your first pull request and wait till all checks will be passed. Open repo `Settings` and choice `Branches` tab. Go to the `master` branch protection rules and edit `Require status checks` section.
+![status_checks](docs/pr_cfg.png)
 
-#### CD/CI
-`checks` GitHub [workflow](.github/workflows/checks.yml) triggered by PR.
+### Additional information
+
+1. If you are not familiar with `poerty` and other tools - read our [Requirements for Python code](https://github.com/agblox/DiviAI-Information/wiki/Coding-Style) Wiki article.
+2. If you have a questions about secrets check hook - read [this](https://github.com/agblox/DiviAI-Information/wiki/Secrets#pre-commit-hook) section from our `Secrets` Wiki article.
+
+## Build
+
+- `release` GitHub [workflow][wr].  Release commit types: `fix` and `feat`.
+
+## Deploy
+
+## Test
+
+### Local
+
+- `make test` for unit tests
+- `make test-intagration` for docker image tests.
+
+### CD/CI
+
+- `checks` GitHub [workflow][wch] triggered by PR.
 
 ### Contribute
 Commit message style - [Conventional Commits][cc].
 
-[g]: https://www.atlassian.com/git/tutorials/install-git
-[pk]: https://pre-commit.com/#install
-[p]: https://python-poetry.org/docs/#installation
 [a]: https://github.com/IaroslavR/ansible-role-server-bootstrap
 [cc]: https://www.conventionalcommits.org/en/v1.0.0/
-
-[1]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
-[2]: https://docs.google.com/document/d/128c8Up40PFeZg2LaUkChC3hNv1139-VruFm_SC-ZJiU/edit#heading=h.jutu1mazqqgt
-[3]: https://github.com/agblox/DiviAI-Information/wiki/Repos
-[7]: https://python-poetry.org/docs/basic-usage
-[8]: https://github.com/agblox/DiviAI-Information/wiki/Secrets#pre-commit-hook
+[g]: https://www.atlassian.com/git/tutorials/install-git
+[p]: https://python-poetry.org/docs/#installation
+[pk]: https://pre-commit.com/#install
+[wch]: .github/workflows/checks.yml
+[wr]: .github/workflows/release.yml
 
 [checks]: https://github.com/agblox/template-api-server/actions/workflows/checks.yml/badge.svg
-[release]: https://github.com/agblox/template-api-server/actions/workflows/release.yml/badge.svg
+[publish]: https://github.com/agblox/template-api-server/actions/workflows/publish.yml/badge.svg
+
+[checks]: https://github.com/agblox/template-python/actions/workflows/checks.yml/badge.svg
+[release]: https://github.com/agblox/template-python/actions/workflows/release.yml/badge.svg

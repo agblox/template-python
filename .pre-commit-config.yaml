@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: check-json
       - id: check-toml
@@ -8,8 +8,12 @@ repos:
       - id: end-of-file-fixer
       - id: no-commit-to-branch
       - id: trailing-whitespace
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
   - repo: https://github.com/psf/black
-    rev: 21.5b1
+    rev: 21.12b0
     hooks:
       - id: black
         args: ["-l", "100", "--target-version=py38"]
@@ -17,22 +21,23 @@ repos:
     rev: "3.9.2"
     hooks:
       - id: flake8  # C90,E,F,W
+        exclude: ^src/template_server/models/alembic
         additional_dependencies:
-          - darglint==1.7.0  # DAR
-          - flake8-annotations==2.6.1  # ANN
-          - flake8-bugbear==21.3.2  # B,B9
+          - darglint==1.8.1  # DAR
+          - flake8-annotations==2.7.0  # ANN
+          - flake8-bugbear==22.1.11  # B,B9
           - flake8-cognitive-complexity==0.1.0  # CCR
-          - flake8-comprehensions==3.3.1  # C4
-          - flake8-docstrings==1.5.0  # D
-          - flake8-eradicate==1.0.0  # E800
+          - flake8-comprehensions==3.8.0  # C4
+          - flake8-docstrings==1.6.0  # D
+          - flake8-eradicate==1.2.0  # E800
           - flake8-import-order==0.18.1  # I
           - flake8-polyfill==1.0.2
-          - flake8-pytest-style==1.4.0  # PT
-          - pep8-naming==0.11.1  # N8
+          - flake8-pytest-style==1.6.0  # PT
+          - pep8-naming==0.12.1  # N8
   - repo: local
     hooks:
-    -   id: poetry_lock
-        name: Check if poetry is updated
+    -   id: poetry_lock_check
+        name: Check if poetry lock file is updated
         entry: |
           python -c "
           from poetry.factory import Factory
@@ -40,7 +45,7 @@ repos:
           if l.is_locked() and l.is_fresh():
             exit(0)
           else:
-            print('run `portry update` to fix')
+            print('run `poetry update` to fix')
             exit(1)
           "
         language: python_venv
@@ -53,3 +58,12 @@ repos:
     hooks:
       - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v7.0.1
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies:
+          - '@commitlint/config-conventional'
+          - '@commitlint/ensure'
+          - 'commitlint-plugin-function-rules'
