@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.3 (2022-02-02)
+### Fix
+* Update documentation and tool chain ([`53eda92`](https://github.com/agblox/template-python/commit/53eda921ca8098495201653677da02a9e25dba85))
+
 ## v1.3.2 (2021-09-22)
 ### Fix
 * **ci:** Minor updates ([`57bed55`](https://github.com/agblox/template-python/commit/57bed558cefa4447e930054ccdff4bc59b042e03))
