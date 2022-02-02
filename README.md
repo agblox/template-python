@@ -81,7 +81,6 @@ Create your first pull request and wait till all checks will be passed. Open rep
 ### Local
 
 - `make test` for unit tests
-- `make test-intagration` for docker image tests.
 
 ### CD/CI
 
