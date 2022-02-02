@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.5 (2022-02-02)
+### Fix
+* Readme tests local paragraph ([`9a8383a`](https://github.com/agblox/template-python/commit/9a8383a040c9cb03c2bfe070b72a052db2fee5a4))
+
 ## v1.3.4 (2022-02-02)
 ### Fix
 * Add information about initial version fix ([`966d0b3`](https://github.com/agblox/template-python/commit/966d0b371cc90c8846ee60be333710e210679a86))
