@@ -57,8 +57,9 @@ Run `make` for list all available targets.
 1. Edit [CODEOWNERS](.github/CODEOWNERS) file.
 2. Find all `replace-me`, `template_python` and `template-python` strings in repo files or files/dirs names and replace it with actual data.
 3. Open `pyproject.toml` and replace version of your package to the `0.0.1`(line 6).
-4. Delete `Template usage` sections of this file.
-5. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
+4. Open `CHANGELOG.md` and delete all after `<!--next-version-placeholder-->` line.
+5. Delete `Template usage` sections of this file.
+6. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
 
 ### PR configuration
 
@@ -94,11 +95,9 @@ Commit message style - [Conventional Commits][cc].
 [g]: https://www.atlassian.com/git/tutorials/install-git
 [p]: https://python-poetry.org/docs/#installation
 [pk]: https://pre-commit.com/#install
+
 [wch]: .github/workflows/checks.yml
 [wr]: .github/workflows/release.yml
-
-[checks]: https://github.com/agblox/template-api-server/actions/workflows/checks.yml/badge.svg
-[publish]: https://github.com/agblox/template-api-server/actions/workflows/publish.yml/badge.svg
 
 [checks]: https://github.com/agblox/template-python/actions/workflows/checks.yml/badge.svg
 [release]: https://github.com/agblox/template-python/actions/workflows/release.yml/badge.svg
