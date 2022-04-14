@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.4.0 (2022-04-14)
+### Feature
+* **ci:** Refactor to reusable workflows ([`ed86679`](https://github.com/agblox/template-python/commit/ed86679b0dd1c3d6b9ed18b08fbf7e19d7d40617))
+
+### Documentation
+* Update `Files modification` paragraph ([`1ecb047`](https://github.com/agblox/template-python/commit/1ecb04737d11cfb9274a377ef55ff2ee9d811781))
+
 ## v1.3.5 (2022-02-02)
 ### Fix
 * Readme tests local paragraph ([`9a8383a`](https://github.com/agblox/template-python/commit/9a8383a040c9cb03c2bfe070b72a052db2fee5a4))
