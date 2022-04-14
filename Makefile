@@ -4,7 +4,7 @@ SHELL = /bin/bash
 PACKAGE_NAME := template-python
 PACKAGE_PATH := src/template_python
 
-VERSION := $(shell poetry run python -c "from importlib.metadata import version; print(version('${PACKAGE_NAME}'))")
+VERSION := 1.3.5
 
 ##@ Bootstrap
 .PHONY: repo-init bootstrap
@@ -29,7 +29,7 @@ mypy:  ## Run type checker
 .PHONY: test
 
 test:  ## Run tests
-	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest --cov=src
+	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest --cov-config=.coveragerc --cov=src 2>&1 | tee pytest-coverage.txt
 
 ##@ Miscellaneous
 .PHONY: secrets-baseline-create secrets-baseline-audit secrets-update refresh-lock clean
@@ -49,6 +49,9 @@ refresh-lock:  ## Refresh the lock file without updates
 clean:  ## Clean python environment
 	poetry install --remove-untracked
 	rm -rf .coverage .mypy_cache .pytest_cache
+
+build-assets:  ## Build GitHub release assets
+	poetry build
 
 ##@ Helpers
 .PHONY: help
