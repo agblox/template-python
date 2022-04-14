@@ -9,7 +9,7 @@ documentation = "https://github.com/agblox/template-python"
 homepage = "https://github.com/agblox/template-python"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.10.2,<4.0"
 
 # dev deps
 detect-secrets = { version = "^1.1.0", optional = true }
@@ -42,8 +42,13 @@ target-version = ['py38']
 version_variable = [
     "pyproject.toml:version"
 ]
+version_pattern = [
+    "Makefile:^VERSION := {version}",
+]
+
 upload_to_pypi = false
-upload_to_release = false
+dist_path = "dist/"
+build_command = "make build-assets"
 commit_subject = "chore(release): {version} [skip actions]"
 
 [build-system]

@@ -1,3 +1,6 @@
-def test_example():
-    """This test do nothing. Boilerplate example."""
-    pass
+import template_python
+
+
+def test_hi():
+    """Boilerplate example."""
+    assert template_python.hi() == "hi!"

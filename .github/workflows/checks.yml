@@ -2,74 +2,25 @@ on:
   pull_request:
 
 jobs:
-  pytest:
-    runs-on: ubuntu-latest
-    name: Run tests
-    strategy:
-      # By default, GitHub will maximize the number of jobs run in parallel
-      # depending on the available runners on GitHub-hosted virtual machines.
-      # max-parallel: 8
-      fail-fast: false
-      matrix:
-        python-version:
-          - "3.8"
-    steps:
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - uses: actions/checkout@v2
-      - name: Install poetry
-        run: pip install poetry
-      - name: Configure poetry
-        shell: bash
-        run: poetry config virtualenvs.in-project true
-      - name: Set up poetry cache
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: |
-            .venv
-          key: poetry-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: make bootstrap
-      - name: Run unit tests
-        run: make tests
-
   pre-commit:
-    runs-on: ubuntu-latest
-    name: Check all files with pre-commit
-    steps:
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-      - uses: actions/checkout@v2
-      - uses: pre-commit/action@v2.0.3
+    uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@DD-833
+    with:
+      python-version: "3.10.2"
+
+  pytest:
+    uses: agblox/github-reusable-workflows/.github/workflows/pytest.yml@DD-833
+    with:
+      python-version: "3.10.2"
 
   commitlint:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install commitlint-plugin-function-rules
-      - uses: wagoid/commitlint-github-action@v3
-        env:
-          NODE_PATH: ${{ github.workspace }}/node_modules
+    uses: agblox/github-reusable-workflows/.github/workflows/commitlint.yml@DD-833
 
   approve:
     if: ${{ success() }}
     needs:
-      - pytest
       - pre-commit
       - commitlint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: hmarr/auto-approve-action@v2
-        with:
-          github-token: "${{ secrets.ORG_MACHINE_USER_TOKEN }}"
+      - pytest
+    uses: agblox/github-reusable-workflows/.github/workflows/approve.yml@DD-833
+    secrets:
+      token: ${{ secrets.ORG_MACHINE_USER_TOKEN }}
