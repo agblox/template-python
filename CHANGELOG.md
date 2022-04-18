@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.4.1 (2022-04-18)
+### Fix
+* **ci:** Bump shared workflows to `1.0.1` ([`def81ee`](https://github.com/agblox/template-python/commit/def81ee2fa85c70840638aae66def8019c80d522))
+
 ## v1.4.0 (2022-04-14)
 ### Feature
 * **ci:** Refactor to reusable workflows ([`ed86679`](https://github.com/agblox/template-python/commit/ed86679b0dd1c3d6b9ed18b08fbf7e19d7d40617))

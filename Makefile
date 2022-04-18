@@ -4,7 +4,7 @@ SHELL = /bin/bash
 PACKAGE_NAME := template-python
 PACKAGE_PATH := src/template_python
 
-VERSION := 1.4.0
+VERSION := 1.4.1
 
 ##@ Bootstrap
 .PHONY: repo-init bootstrap
