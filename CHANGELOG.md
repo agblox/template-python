@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.4.2 (2022-07-21)
+### Fix
+* **ci:** Bump shared workflows to `1.0.3` ([`8b45134`](https://github.com/agblox/template-python/commit/8b45134f16f8ceee62ab43f7ede5bc15af409dd3))
+
 ## v1.4.1 (2022-04-18)
 ### Fix
 * **ci:** Bump shared workflows to `1.0.1` ([`def81ee`](https://github.com/agblox/template-python/commit/def81ee2fa85c70840638aae66def8019c80d522))
