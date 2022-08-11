@@ -8,7 +8,7 @@ MAKEFLAGS += --no-builtin-rules
 
 PACKAGE_NAME := template-python
 PACKAGE_PATH := src/template_python
-VERSION := 1.4.2
+VERSION := 1.5.0
 
 .DEFAULT_GOAL = help
 

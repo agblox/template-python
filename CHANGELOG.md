@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.5.0 (2022-08-11)
+### Feature
+* Add cli tool template ([`05394a0`](https://github.com/agblox/template-python/commit/05394a03dde8e716abe9b400ade7283edeb92656))
+
 ## v1.4.2 (2022-07-21)
 ### Fix
 * **ci:** Bump shared workflows to `1.0.3` ([`8b45134`](https://github.com/agblox/template-python/commit/8b45134f16f8ceee62ab43f7ede5bc15af409dd3))
