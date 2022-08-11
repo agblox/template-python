@@ -26,30 +26,41 @@ You can use [this][a] playbook for automated tools installation(Ubuntu only).
 
 ### Usage
 
-Run `make` for list all available targets.
+```shell
+pip install git+https://github.com/agblox/template-python.git
+template-python --help
+```
 
 #### Setup local environment
 
-- `git clone git@github.com:agblox/template-python.git`
-- `cd template-python`
-- `make repo-init bootstrap`
+Run `make` for list all available targets.
+
+```shell
+git clone git@github.com:agblox/template-python.git
+cd template-python
+make init
+```
 
 ## Template usage
-
-**If you have any questions or problems with this instruction, please contact `@iaro` in our Slack.**
 
 ### Initial configuration
 
 1. Create a new repo from this template.
-![create](docs/template_btn.png)
+
+    ![create](docs/template_btn.png)
+
 2. Add `automation` team to the repo admins
+
    ![release](docs/auth_setup.png)
+
 3. Set branch protection rules for `master` branch
 
    ![add_rule](docs/branches.png)
 
    ![set_master](docs/master.png)
+
 4. Enable auto-merge and branch deletion after merge
+
    ![set_options](docs/options.png)
 
 ### Files modification
@@ -59,11 +70,13 @@ Run `make` for list all available targets.
 3. Open `pyproject.toml` and replace version of your package to the `0.0.1`(line 6).
 4. Open `CHANGELOG.md` and delete all after `<!--next-version-placeholder-->` line.
 5. Delete `Template usage` sections of this file.
-6. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
+6. Execute `make replace-me` and replace all highlights with actual data.
+7. :heavy_exclamation_mark: Write all details about your repo in the `About` section.
 
 ### PR configuration
 
 Create your first pull request and wait till all checks will be passed. Open repo `Settings` and choice `Branches` tab. Go to the `master` branch protection rules and edit `Require status checks` section.
+
 ![status_checks](docs/pr_cfg.png)
 
 ### Additional information
@@ -87,14 +100,17 @@ Create your first pull request and wait till all checks will be passed. Open rep
 
 - `checks` GitHub [workflow][wch] triggered by PR.
 
-### Contribute
-Commit message style - [Conventional Commits][cc].
+## Contribute
+
+- Git workflow - [GitHub][prwf] flavor.
+- Commit message style - [Conventional Commits][cc].
 
 [a]: https://github.com/IaroslavR/ansible-role-server-bootstrap
 [cc]: https://www.conventionalcommits.org/en/v1.0.0/
 [g]: https://www.atlassian.com/git/tutorials/install-git
 [p]: https://python-poetry.org/docs/#installation
 [pk]: https://pre-commit.com/#install
+[prwf]: https://blog.mergify.com/understanding-the-github-pull-request-workflow/
 
 [wch]: .github/workflows/checks.yml
 [wr]: .github/workflows/release.yml
