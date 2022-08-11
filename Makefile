@@ -1,13 +1,19 @@
-SHELL = /bin/bash
-.DEFAULT_GOAL = help
+SHELL := /bin/bash
+# https://www.gushiciku.cn/pl/p6TH
+.SHELLFLAGS := -eu -o pipefail -c
+.ONESHELL:
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+
 
 PACKAGE_NAME := template-python
 PACKAGE_PATH := src/template_python
-
 VERSION := 1.4.2
 
+.DEFAULT_GOAL = help
+
 ##@ Bootstrap
-.PHONY: repo-init bootstrap
+.PHONY: repo-init bootstrap init
 
 repo-init:  ## Install pre-commit in repo
 	pre-commit install -t pre-commit -t commit-msg
@@ -15,6 +21,7 @@ repo-init:  ## Install pre-commit in repo
 bootstrap:  ## Install/update required tools(dev tools included)
 	poetry install --extras "dev"
 
+init: repo-init bootstrap  ## All init steps at once
 
 ##@ Checks
 .PHONY: check mypy
@@ -29,10 +36,10 @@ mypy:  ## Run type checker
 .PHONY: test
 
 test:  ## Run tests
-	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest --cov-config=.coveragerc --cov=src 2>&1 | tee pytest-coverage.txt
+	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest --cov-config=.coveragerc  --cov=src 2>&1 | tee pytest-coverage.txt
 
 ##@ Miscellaneous
-.PHONY: secrets-baseline-create secrets-baseline-audit secrets-update refresh-lock clean
+.PHONY: secrets-baseline-create secrets-baseline-audit secrets-update refresh-lock clean build-assets replace-me
 
 secrets-baseline-create:  ## Create/update .secrets.baseline file
 	poetry run detect-secrets scan --baseline .secrets.baseline
@@ -52,6 +59,9 @@ clean:  ## Clean python environment
 
 build-assets:  ## Build GitHub release assets
 	poetry build
+
+replace-me:  ## Find not modified parts of template
+	git grep -Ei 'replace*|template*'
 
 ##@ Helpers
 .PHONY: help
