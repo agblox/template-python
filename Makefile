@@ -9,6 +9,7 @@ MAKEFLAGS += --no-builtin-rules
 PACKAGE_NAME := template-python
 PACKAGE_PATH := src/template_python
 VERSION := 1.5.0
+PYTHON_VERSION := $(shell cat .python-version)
 
 .DEFAULT_GOAL = help
 
@@ -18,10 +19,18 @@ VERSION := 1.5.0
 repo-init:  ## Install pre-commit in repo
 	pre-commit install -t pre-commit -t commit-msg
 
+env-init: clean  ## Initialize local environment
+	poetry env use ${PYTHON_VERSION}
+	test -e .env && cp .env .old.env
+	cat .test.env > .env
+	@echo ".env file created, if already existed(if any) .env file was copied to the .old.env"
+	echo "dotenv" > .envrc
+	@echo ".envrc file created"
+
 bootstrap:  ## Install/update required tools(dev tools included)
 	poetry install --extras "dev"
 
-init: repo-init bootstrap  ## All init steps at once
+init: repo-init env-init bootstrap  ## All init steps at once
 
 ##@ Checks
 .PHONY: check mypy
@@ -54,8 +63,7 @@ refresh-lock:  ## Refresh the lock file without updates
 	poetry lock --no-update
 
 clean:  ## Clean python environment
-	poetry install --remove-untracked
-	rm -rf .coverage .mypy_cache .pytest_cache
+	rm -rf .coverage .mypy_cache .pytest_cache .venv
 
 build-assets:  ## Build GitHub release assets
 	poetry build
