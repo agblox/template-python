@@ -6,21 +6,21 @@ on:
 jobs:
   pre-commit:
     name: Create globally available pre-commit cache
-    uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@v1.0.3
+    uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@v1.0.6
     with:
       python-version: "3.10.2"
 
   pytest:
     name: Create globally available poetry cache
-    uses: agblox/github-reusable-workflows/.github/workflows/pytest.yml@v1.0.3
+    uses: agblox/github-reusable-workflows/.github/workflows/pytest.yml@v1.0.6
     with:
-      python-version: "3.10.2"
+      python-version: "3.10"
       run-unit: false
 
   release:
-    uses: agblox/github-reusable-workflows/.github/workflows/release-workflow.yml@v1.0.3
+    uses: agblox/github-reusable-workflows/.github/workflows/release-workflow.yml@v1.0.6
     with:
-      python-version: "3.10.2"
+      python-version: "3.10"
     secrets:
       token: ${{ secrets.ORG_MACHINE_USER_TOKEN }}
 
@@ -28,6 +28,6 @@ jobs:
     if: ${{ failure() }}
     needs:
       - release
-    uses: agblox/github-reusable-workflows/.github/workflows/status-to-slack.yml@v1.0.3
+    uses: agblox/github-reusable-workflows/.github/workflows/status-to-slack.yml@v1.0.6
     secrets:
       slack-webhook: ${{ secrets.GIT_SLACK_WEBHOOK }}

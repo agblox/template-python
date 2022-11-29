@@ -15,3 +15,6 @@ dist/
 .pytest_cache
 .mypy_cache
 pytest-coverage.txt
+
+# Local .env file backup
+.old.env
