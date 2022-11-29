@@ -8,7 +8,7 @@ jobs:
     name: Create globally available pre-commit cache
     uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@v1.0.6
     with:
-      python-version: "3.10.2"
+      python-version: "3.10"
 
   pytest:
     name: Create globally available poetry cache
