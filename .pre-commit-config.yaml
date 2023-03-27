@@ -9,31 +9,28 @@ repos:
       - id: no-commit-to-branch
       - id: trailing-whitespace
   - repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 23.1.0
     hooks:
       - id: black
-        exclude: ^src/freenove_esp32/chip/lib
         args: ["-l", "100", "--target-version=py310"]
   - repo: https://github.com/pycqa/flake8
-    rev: "5.0.4"
+    rev: "5.0.4"  # https://github.com/wemake-services/flake8-eradicate/issues/269
     hooks:
       - id: flake8  # C90,E,F,W
-        exclude: ^src/freenove_esp32/chip/lib
         additional_dependencies:
           - darglint==1.8.1  # DAR
-          - flake8-annotations==2.9.1  # ANN
-          - flake8-bugbear==22.10.27  # B,B9
+          - flake8-annotations==3.0.0  # ANN
+          - flake8-bugbear==23.3.12  # B,B9
           - flake8-cognitive-complexity==0.1.0  # CCR
-          - flake8-comprehensions==3.10.1  # C4
-          - flake8-docstrings==1.6.0  # D
+          - flake8-comprehensions==3.11.1  # C4
+          - flake8-docstrings==1.7.0  # D
           - flake8-eradicate==1.4.0  # E800
-          - flake8-polyfill==1.0.2
-          - flake8-pytest-style==1.6.0  # PT
-          - pep8-naming==0.13.2  # N8
+          - flake8-pytest-style==1.7.2  # PT
+          - pep8-naming==0.13.3  # N8
   - repo: local
     hooks:
     -   id: poetry_lock_check

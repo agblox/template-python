@@ -45,7 +45,7 @@ mypy:  ## Run type checker
 .PHONY: test
 
 test:  ## Run tests
-	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest --cov-config=.coveragerc  --cov=src 2>&1 | tee pytest-coverage.txt
+	PYTHONPATH=$(shell pwd)/${PACKAGE_PATH} poetry run pytest
 
 ##@ Miscellaneous
 .PHONY: secrets-baseline-create secrets-baseline-audit secrets-update refresh-lock clean build-assets replace-me
