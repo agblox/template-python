@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.6.1 (2023-03-27)
+### Fix
+* Bump `github-reusable-workflows` to `2.0.4` ([`d77d8d2`](https://github.com/agblox/template-python/commit/d77d8d265a9ae5532a266e7a12e11544a6b9d816))
+
 ## v1.6.0 (2023-03-27)
 ### Feature
 * Bump CD/CI toolchain ([`1e0312f`](https://github.com/agblox/template-python/commit/1e0312f80e5ac6f049985ebc87b9a39b07ade4db))
