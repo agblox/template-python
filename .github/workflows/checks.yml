@@ -3,13 +3,13 @@ on:
 
 jobs:
   pre-commit:
-    uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@v2.0.2
+    uses: agblox/github-reusable-workflows/.github/workflows/pre-commit.yml@v2.0.3
 
   pytest:
-    uses: agblox/github-reusable-workflows/.github/workflows/pytest.yml@v2.0.2
+    uses: agblox/github-reusable-workflows/.github/workflows/pytest.yml@v2.0.3
 
   commitlint:
-    uses: agblox/github-reusable-workflows/.github/workflows/commitlint.yml@v2.0.2
+    uses: agblox/github-reusable-workflows/.github/workflows/commitlint.yml@v2.0.3
 
   approve:
     if: ${{ success() }}
@@ -17,6 +17,6 @@ jobs:
       - pre-commit
       - commitlint
       - pytest
-    uses: agblox/github-reusable-workflows/.github/workflows/approve.yml@v2.0.2
+    uses: agblox/github-reusable-workflows/.github/workflows/approve.yml@v2.0.3
     secrets:
       token: ${{ secrets.ORG_MACHINE_USER_TOKEN }}
