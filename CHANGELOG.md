@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.6.0 (2023-03-27)
+### Feature
+* Bump CD/CI toolchain ([`1e0312f`](https://github.com/agblox/template-python/commit/1e0312f80e5ac6f049985ebc87b9a39b07ade4db))
+
+### Fix
+* Bump `github-reusable-workflows` to `2.0.3` ([`91aa4b3`](https://github.com/agblox/template-python/commit/91aa4b30dc8ceec573403a9bddcc566d3c1bb16d))
+
 ## v1.5.1 (2022-11-29)
 ### Fix
 * **ci:** Update checks, `pre-commit` config and fix `make` targets ([`b473f6f`](https://github.com/agblox/template-python/commit/b473f6ff1a6d7587936b375a4068e75a3c2d747c))
