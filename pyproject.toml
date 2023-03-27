@@ -23,18 +23,18 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<4.0"
+python = ">=3.9,<4.0"
 
 # dev deps
 detect-secrets = { version = "^1.4.0", optional = true }
-pytest = { version = "^6.1.1", optional = true }
-pytest-cov = { version = "^3.0.0", optional = true }
+pytest = { version = "^7.2.2", optional = true }
+pytest-cov = { version = "^4.0.0", optional = true }
 pytest-dotenv = { version = "^0.5.2", optional = true }
 
-mypy = { version = "^0.931", optional = true }
+mypy = { version = "^1.1.1", optional = true }
 
 # package deps
-typer = "^0.6.1"
+typer = "^0.7.0"
 loguru = "^0.6.0"
 
 [tool.poetry.scripts]
@@ -61,7 +61,7 @@ line_length = 100
 
 [tool.black]
 line-length = 100
-target-version = ['py310']
+target-version = ['py39']
 
 [tool.semantic_release]
 version_variable = [

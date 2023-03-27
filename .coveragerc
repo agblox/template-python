@@ -1,7 +1,6 @@
 [run]
 omit = tests/*
-source =
-    src/
+source = src/
 [report]
 show_missing = True
 skip_empty = True
